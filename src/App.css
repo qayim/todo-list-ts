@@ -1,10 +1,18 @@
 .App {
   text-align: center;
+  background-color: #c8e4fa;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+.task-input-button{
+  padding: 2%;
+  margin: 5%;
+  background-color: #9ba0fb;
+  border-radius: 20px;
 }
 
 @media (prefers-reduced-motion: no-preference) {

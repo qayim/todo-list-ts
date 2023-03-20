@@ -1,0 +1,36 @@
+.todo-title {
+  font-size: 150%;
+  font-weight: bold;
+  color: #5647e2;
+}
+
+.todo-item {
+  padding: 2%;
+  margin: 5%;
+  background-color: #9ba0fb;
+  border-radius: 20px;
+}
+
+.todo-item-box {
+  padding: 2%;
+  background-color: aliceblue;
+  border-radius: 20px;
+  margin: 2%;
+  display: grid;
+  grid-template-columns: 80% 20%;
+}
+
+.todo-item-text {
+  color: #5647e2;
+  font-size: 150%;
+  font-weight: thin;
+  text-align: left;
+  padding: auto;
+}
+.todo-item-text.completed {
+  color: #5647e2;
+  font-size: 150%;
+  font-weight: thin;
+  text-decoration: line-through;
+  padding: auto;
+}
