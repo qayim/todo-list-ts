@@ -1,7 +1,7 @@
 import TaskItem from "./components/TaskItem";
 import TaskInput from "./components/TaskInput";
 import TaskEdit from "./components/TaskEdit";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Task from "./models/task";
 import "./App.css";
 
@@ -13,6 +13,7 @@ function App() {
   const [taskEditData, setTaskEditData] = useState("");
   const [taskUpdateData, setTaskUpdateData] = useState("");
   const [taskEditIdData, setTaskEditIdData] = useState(0);
+
 
   //CHANGE VISIBILITY STARTS
   //to change visibility of the component
@@ -46,9 +47,20 @@ function App() {
     setTasks((prevTask) => {
       return prevTask.concat(newTask);
     });
-
+    console.log("Newly added task: " + tasks.map((task) => task.text));
+    //localStorage.setItem("task", JSON.stringify(tasks));
     taskInputVisibleHandler();
   };
+
+  // NOT WORKING
+  //save the data every time tasks changes into local storage
+  //Problem: every time reloads it, the task value turns into an empty array
+  //Potential cause: when reloads tasks data clears(changes) then it reset the tasks to empty again
+  //Potential fix: stop the initial reload to trigger the useEffect -> Not sure how, Render state in ref not working
+  // useEffect(() => {
+  //   localStorage.setItem("task", JSON.stringify(tasks));
+  // }, [tasks]);
+
   //ADD THE NEW DATA ENDS
 
   //REMOVE THE DATA STARTS
