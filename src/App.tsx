@@ -65,7 +65,7 @@ function App() {
     taskInputVisibleHandler();
   };
 
-  // NOT WORKING
+  // NOT WORKING -> WORKING REFER TOP PART
   //save the data every time tasks changes into local storage
   //Problem: every time reloads it, the task value turns into an empty array
   //Potential cause: when reloads tasks data clears(changes) then it reset the tasks to empty again
@@ -149,17 +149,15 @@ function App() {
     const newTask = tasks.map((task) => {
       // id same then update the data with new data (complete) !task.complete to be safe since only true or false
       if (task.id === taskEditIdData) {
-        setTaskEditData(taskUpdateData);
+        setTaskEditData(taskUpdateData); //to update the ori text to the latest one
         return { ...task, text: taskUpdateData };
       }
 
       // if not the same then just send the before change
       return task;
     });
-    console.log("taskkk", tasks);
     console.log("Task update data: ", taskUpdateData);
     setTasks(newTask);
-    console.log("taskkk after newTask", tasks);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [taskUpdateData]);
   //EDIT THE DATA ENDS
